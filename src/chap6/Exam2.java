@@ -12,21 +12,36 @@ package chap6;
  *        출력하기         
  */
 class Rectangle2 {
-	int width,height,sno;
-	static int cnt;
-	void area() { System.out.println("면적:"+(width*height));	}
-	void length() {	System.out.println("둘레:"+(width+height)*2);	}
+	int width,height,sno;  //인스턴스변수
+	static int cnt;        //클래스변수
+	void area() { 
+		System.out.println("면적:"+(width*height));	
+	}
+	void length() {	
+		System.out.println("둘레:"+(width+height)*2);	
+	}
 	public String toString() {
-		return "가로("+width+"),세로("+height+
+		return sno+"번 사각형 : 가로("+width+"),세로("+height+
 				"),현재까지 생성된 사각형("+cnt+")";
 	}
 }
 public class Exam2 {
 	public static void main(String[] args) {
-		Rectangle2 r1 = new Rectangle2();
+		Rectangle2 r1 = new Rectangle2();  //객체화
 		r1.width=10;
 		r1.height=20;
 		r1.sno = ++Rectangle2.cnt;
 		System.out.println(r1);
+		//면적과 둘레 출력하기
+		r1.area();
+		r1.length();
+		//가로:20,세로:30인 두번째 사각형 생성하기
+		Rectangle2 r2 = new Rectangle2();
+		r2.width=20;
+		r2.height=30;
+		r2.sno = ++Rectangle2.cnt;
+		System.out.println(r2);
+		r2.area();
+		r2.length();
 	}
 }
